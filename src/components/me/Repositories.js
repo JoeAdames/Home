@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import Spinner from '../layout/Spinner';
+import GithubContext from '../../context/github/githubContext';
 import RepoItem from './RepoItem';
 // import { Link } from 'react-router-dom';
 
-// state.forEach((repo) => <RepoItem repo={repo} key={repo.id} />)
+// state.forEach((repo) => <RepoItem repo={repo} key={repo.id} />)''
 
 const Repositories = () => {
-	const [state, setState] = useState({});
+	const githubContext = useContext(GithubContext);
+	const { repositories, loading, getRepositories } = githubContext;
 	useEffect(() => {
-		const getRepositories = async (username) => {
-			const res = await fetch(
-				`https://api.github.com/users/JoeAdames/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-			);
-			const data = await res.json();
-			console.log(data);
-			setState(data);
-		};
 		getRepositories();
+		// eslint-disable-next-line
 	}, []);
-	return <div>trying</div>;
+	if (loading) return <Spinner />;
+	return repositories.map((repo) => <RepoItem repo={repo} key={repo.id} />);
 };
 
 export default Repositories;

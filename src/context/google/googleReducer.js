@@ -1,17 +1,11 @@
-import { GET_USER, GET_REPOSITORIES, SET_LOADING } from '../types';
+import { GET_DATA, SET_LOADING } from '../types';
 // eslint-disable-next-line
 export default (state, action) => {
 	switch (action.type) {
-		case GET_USER:
+		case GET_DATA:
 			return {
 				...state,
-				user: action.payload,
-				loading: false,
-			};
-		case GET_REPOSITORIES:
-			return {
-				...state,
-				repositories: action.payload,
+				data: action.payload,
 				loading: false,
 			};
 		case SET_LOADING:

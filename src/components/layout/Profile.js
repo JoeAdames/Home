@@ -1,35 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import Spinner from './Spinner';
+import GithubContext from '../../context/github/githubContext';
 // import { Link } from 'react-router-dom';
 
 const Profile = () => {
-	const [state, setState] = useState({});
+	const githubContext = useContext(GithubContext);
+	const { me, loading, getUser } = githubContext;
+
 	useEffect(() => {
-		const getMe = async () => {
-			const res = await fetch(
-				`https://api.github.com/users/JoeAdames?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-			);
-			const data = await res.json();
-			console.log(data);
-			setState(data);
-		};
-		getMe();
+		getUser();
+		// eslint-disable-next-line
 	}, []);
+
+	//i have no iea how this is working... it doesnt make sense in the context im user, but here i am me, but if i use the user variable from state.. this breaks
+	const { avatar_url, name, bio, twitter_username } = me;
+
+	if (loading) return <Spinner />;
+
 	return (
 		<nav className='navbar'>
 			<div className='card' style={{ width: '300px' }}>
 				<img
-					src={state.avatar_url}
+					src={avatar_url}
 					className='round-img'
 					alt=''
 					style={{ width: '100px' }}
 				/>
 
-				<h1>{state.name}</h1>
-				<p>{state.bio}</p>
+				<h1>{name}</h1>
+				<p>{bio}</p>
 				<ul>
 					<li>
 						<a
-							href={`Twitter.com/${state.twitter_username}`}
+							href={`Twitter.com/${twitter_username}`}
 							target='_blank'
 							rel='noreferrer'
 						>
@@ -38,7 +41,7 @@ const Profile = () => {
 					</li>
 					<li>
 						<a
-							href={`Twitter.com/${state.twitter_username}`}
+							href={`Twitter.com/${twitter_username}`}
 							target='_blank'
 							rel='noreferrer'
 						>
@@ -47,7 +50,7 @@ const Profile = () => {
 					</li>
 					<li>
 						<a
-							href={`Twitter.com/${state.twitter_username}`}
+							href={`Twitter.com/${twitter_username}`}
 							target='_blank'
 							rel='noreferrer'
 						>

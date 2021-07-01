@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Repositories from '../me/Repositories';
 
 const Projects = () => {
-	return <div>Projects</div>;
+	return (
+		<Fragment>
+			<Repositories />
+		</Fragment>
+	);
 };
 
 export default Projects;
