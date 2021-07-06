@@ -13,53 +13,25 @@ const Profile = () => {
 	}, []);
 
 	//i have no iea how this is working... it doesnt make sense in the context im user, but here i am me, but if i use the user variable from state.. this breaks
-	const { avatar_url, name, bio, twitter_username } = me;
+	const { avatar_url, name, bio } = me;
 
 	if (loading) return <Spinner />;
 
 	return (
-		<nav className='navbar'>
-			<div className='card' style={{ width: '300px' }}>
+		<div>
+			<div style={{ width: '300px' }}>
 				<img
 					src={avatar_url}
 					className='round-img'
 					alt=''
-					style={{ width: '100px' }}
+					style={{ width: '200px' }}
 				/>
-
+			</div>
+			<div style={{ width: '300px' }}>
 				<h1>{name}</h1>
 				<p>{bio}</p>
-				<ul>
-					<li>
-						<a
-							href={`Twitter.com/${twitter_username}`}
-							target='_blank'
-							rel='noreferrer'
-						>
-							Twitter
-						</a>
-					</li>
-					<li>
-						<a
-							href={`Twitter.com/${twitter_username}`}
-							target='_blank'
-							rel='noreferrer'
-						>
-							Blog
-						</a>
-					</li>
-					<li>
-						<a
-							href={`Twitter.com/${twitter_username}`}
-							target='_blank'
-							rel='noreferrer'
-						>
-							LinkedIn
-						</a>
-					</li>
-				</ul>
 			</div>
-		</nav>
+		</div>
 	);
 };
 

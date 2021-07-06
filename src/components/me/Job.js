@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Job = ({ job }) => {
-	return <div dangerouslySetInnerHTML={{ __html: job }}></div>;
+const Job = ({ company, title, duties }) => {
+	return (
+		<li>
+			<h1>{company}</h1>
+			<h2>{title}</h2>
+			{duties}
+		</li>
+	);
 };
 Job.propTypes = {
 	job: PropTypes.object.isRequired,
