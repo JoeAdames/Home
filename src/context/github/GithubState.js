@@ -41,7 +41,7 @@ const GithubState = (props) => {
 	const getRepositories = async () => {
 		setLoading();
 		const res = await fetch(
-			`https://api.github.com/users/joeadames/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
+			`https://api.github.com/users/joeadames/repos?per_page=10&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
 		);
 		const data = await res.json();
 		console.log(data);

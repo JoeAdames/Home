@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Spinner from './Spinner';
 import GithubContext from '../../context/github/githubContext';
+import BG from '../../images/maybe.jpg';
 // import { Link } from 'react-router-dom';
 
 const Profile = () => {
@@ -18,18 +19,23 @@ const Profile = () => {
 	if (loading) return <Spinner />;
 
 	return (
-		<div>
-			<div style={{ width: '300px' }}>
-				<img
+		<div style={{ padding: '10px' }}>
+			<div>
+				{/* <img
 					src={avatar_url}
 					className='round-img'
 					alt=''
 					style={{ width: '200px' }}
-				/>
+				/> */}
 			</div>
-			<div style={{ width: '300px' }}>
-				<h1>{name}</h1>
-				<p>{bio}</p>
+			<div>
+				<div className='x-large text-center'>{name}</div>
+				<p className='lead text-center'>{bio}</p>
+			</div>
+			<div>
+				<p className='text-center'>
+					Currently seeking Frontend and Full stack opportunities
+				</p>
 			</div>
 		</div>
 	);

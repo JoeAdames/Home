@@ -1,13 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /* Global Styles */
+/* :root {
+	--primary-color: #d64933;
+	--dark-color: #03256c;
+	--light-color: #eee5e9;
+	--danger-color: #92dce5;
+	--success-color: #7c7c7c;
+} */
 :root {
-	--primary-color: #dc3545;
-	--dark-color: #333333;
-	--light-color: #f4f4f4;
-	--danger-color: #dc3545;
-	--success-color: #28a745;
+	--primary-color: #0a2463;
+	--dark-color: #1e1b18;
+	--light-color: #fffaff;
+	--danger-color: #d8315b;
+	--success-color: #3e92cc;
 }
+/* :root {
+	--primary-color: #1768ac;
+	--dark-color: #03256c;
+	--light-color: #ffffff;
+	--danger-color: #2541b2;
+	--success-color: #06bee1;
+} */
+/* :root {
+	--primary-color: #606c38;
+	--dark-color: #283618;
+	--light-color: #fefae0;
+	--danger-color: #bc6c25;
+	--success-color: #dda15e;
+} */
 
 * {
 	box-sizing: border-box;
@@ -84,6 +105,9 @@ img {
 
 .text-danger {
 	color: var(--danger-color);
+}
+.text-light {
+	color: var(--light-color);
 }
 
 .text-center {

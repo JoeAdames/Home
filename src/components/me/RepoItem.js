@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 const RepoItem = ({ repo }) => {
 	return (
-		<div>
-			<h3>
-				<a href={repo.html_url} target='_blank' rel='noreferrer'>
-					{repo.name}
-				</a>
-			</h3>
+		<div className='text-center'>
+			<a
+				href={repo.html_url}
+				target='_blank'
+				rel='noreferrer'
+				className='lead text-success'
+			>
+				{repo.name}
+			</a>
 		</div>
 	);
 };
